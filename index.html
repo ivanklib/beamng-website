@@ -2,43 +2,196 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>BeamNG.drive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeamNG.drive — Реалистичный симулятор с физикой разрушений</title>
+    <meta name="description" content="BeamNG.drive — уникальный симулятор с реалистичной физикой, модами, краш-тестами и ИИ-трафиком. Обзор плюсов, минусов и возможностей игры.">
+    <meta name="keywords" content="BeamNG.drive, симулятор, физика, разрушения, моды, краш-тест, игра, обзор, реалистичное вождение">
+    <meta name="author" content="Fan of BeamNG">
+    <meta property="og:title" content="BeamNG.drive — Симулятор будущего">
+    <meta property="og:description" content="Лучшая физика разрушений в мире. Песочница, моды, эксперименты.">
+    <meta property="og:image" content="screenshot_2025-10-11_18-50-021.png">
+    <meta property="og:url" content="https://ваше_имя.github.io/beamng">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://beamng.com/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://beamng.com/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts (опционально для красоты) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
         body {
-            background: url('https://images.unsplash.com/photo-1593941707882-a5bba5338fe2?auto=format&fit=crop&w=1920') fixed center/cover;
+            background: url('screenshot_2025-10-11_18-50-021.png') fixed center;
+            background-size: cover;
             margin: 0;
             padding: 20px;
-            font-family: Arial, sans-serif;
-            color: white;
+            font-family: 'Roboto', Arial, sans-serif;
             min-height: 100vh;
+            color: #fff;
         }
         .text-block {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.75);
+            color: white;
             padding: 40px;
             border-radius: 15px;
             max-width: 1000px;
-            margin: 0 auto;
-            line-height: 1.6;
-            border: 2px solid #FF8C00;
+            margin: 40px auto;
+            line-height: 1.7;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
         }
         h1 {
-            text-align: center;
-            color: #FFA500;
-            font-size: 2.5em;
             margin-top: 0;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.7em;
+            color: #fff;
+        }
+        h2 {
+            border-bottom: 1px solid #FFA500;
+            padding-bottom: 8px;
+            color: #FFA500;
+            font-size: 1.4em;
+        }
+        ul, ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 9px;
+        }
+        p {
+            text-align: justify;
+        }
+        .btn {
+            display: block;
+            width: 300px;
+            margin: 30px auto;
+            padding: 14px;
+            background: #1f9eff;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .btn:hover {
+            background: #0d8bee;
+            transform: scale(1.05);
+        }
+        .lang-switch {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 1.1em;
+        }
+        .lang-switch a {
+            color: #FFA500;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .lang-switch a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9em;
+        }
+        @media (max-width: 768px) {
+            .text-block {
+                padding: 25px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 2.1em;
+            }
+            .btn {
+                width: 260px;
+                font-size: 0.95em;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="text-block">
-        <h1>🚗 BeamNG.drive - Сайт работает!</h1>
-        <p>Ваш сайт теперь доступен по ссылке:</p>
-        <p style="background: rgba(255,140,0,0.2); padding: 10px; border-radius: 5px;">
-            <strong>https://ivanklib.github.io/beamng-website/</strong>
-        </p>
-        <p>Скопируйте эту ссылку и поделитесь с друзьями!</p>
+    <!-- Переключатель языка -->
+    <div class="lang-switch">
+        <a href="#ru" onclick="setLang('ru')">🇷🇺 Русский</a> | 
+        <a href="#en" onclick="setLang('en')">🇬🇧 English</a>
     </div>
-    
-    <!-- НИКАКИХ ПЕРЕНАПРАВЛЕНИЙ ТУТ НЕТ! -->
+
+    <div class="text-block">
+        <h1><span class="text" data-en="BeamNG.drive" data-ru="BeamNG.drive">BeamNG.drive</span> <font color="#FFA500">.drive</font></h1>
+
+        <p>
+            <span class="text" data-en="Realistic simulator with perfect physics. Cars bend, break, behave like in real life. Endless crashes, mods, sandbox. Perfect for crash tests and absurd experiments." data-ru="Реалистичный симулятор с идеальной физикой. Машины гнутся, ломаются, ведут себя как в жизни. Бесконечные аварии, моды, песочница. Идеально для краш-тестов и абсурдных экспериментов.">
+                Реалистичный симулятор с идеальной физикой. Машины гнутся, ломаются, ведут себя как в жизни. Бесконечные аварии, моды, песочница. Идеально для краш-тестов и абсурдных экспериментов.
+            </span>
+        </p>
+
+        <h2><span class="text" data-en="🎮 What else is interesting in the game:" data-ru="🎮 Что ещё интересного в игре:">🎮 Что ещё интересного в игре:</span></h2>
+        <ul>
+            <li><strong><span class="text" data-en="Technological miracle" data-ru="Технологическое чудо">Технологическое чудо</span></strong> — <span class="text" data-en="soft-body engine, each car part is calculated separately" data-ru="движок soft-body, где каждая деталь машины просчитывается отдельно">движок soft-body, где каждая деталь машины просчитывается отдельно</span></li>
+            <li><strong><span class="text" data-en="Real damage" data-ru="Реальное повреждение">Реальное повреждение</span></strong> — <span class="text" data-en="dents, broken axles, torn doors, leaking fuel" data-ru="вмятины, сломанные оси, оторванные двери, вытекающий бензин">вмятины, сломанные оси, оторванные двери, вытекающий бензин</span></li>
+            <li><strong><span class="text" data-en="For content creators" data-ru="Для контент-мейкеров">Для контент-мейкеров</span></strong> — <span class="text" data-en="built-in slow-motion recorder, scenario editor for filming" data-ru="встроенный рекордер с замедлением, редактор сценариев для съёмки фильмов">встроенный рекордер с замедлением, редактор сценариев для съёмки фильмов</span></li>
+            <li><strong><span class="text" data-en="For engineers" data-ru="Для инженеров">Для инженеров</span></strong> — <span class="text" data-en="fine-tuning of nodes, Telemetry API" data-ru="тонкая настройка узлов, Telemetry API для сбора данных">тонкая настройка узлов, Telemetry API для сбора данных</span></li>
+        </ul>
+
+        <h2><span class="text" data-en="✅ Pros of BeamNG.drive:" data-ru="✅ Плюсы BeamNG.drive:">✅ Плюсы BeamNG.drive:</span></h2>
+        <ul>
+            <li><span class="text" data-en="Best crash physics in the world" data-ru="Лучшая в мире физика разрушений">Лучшая в мире физика разрушений</span></li>
+            <li><span class="text" data-en="Complete freedom — do whatever you want" data-ru="Полная свобода действий — делай что хочешь">Полная свобода действий — делай что хочешь</span></li>
+            <li><span class="text" data-en="Endless mods (thousands of cars, maps, scenarios)" data-ru="Бесконечные моды (тысячи машин, карт, сценариев)">Бесконечные моды (тысячи машин, карт, сценариев)</span></li>
+        </ul>
+
+        <h2><span class="text" data-en="❌ Major downsides:" data-ru="❌ Существенные минусы:">❌ Существенные минусы:</span></h2>
+        <ol>
+            <li><strong><span class="text" data-en="Demands powerful hardware" data-ru="Требовательна к железу">Требовательна к железу</span></strong> — <span class="text" data-en="even strong PCs may lag" data-ru="даже мощные ПК иногда «тормозят»">даже мощные ПК иногда «тормозят»</span></li>
+            <li><strong><span class="text" data-en="No story" data-ru="Нет сюжета">Нет сюжета</span></strong> — <span class="text" data-en="pure sandbox without a plot" data-ru="чистая песочница без сценария">чистая песочница без сценария</span></li>
+        </ol>
+
+        <h2><span class="text" data-en="📊 Impressive numbers:" data-ru="📊 Цифры для впечатления:">📊 Цифры для впечатления:</span></h2>
+        <ul>
+            <li><strong>500+</strong> <span class="text" data-en="cars on Steam Workshop" data-ru="машин в Workshop Steam">машин в Workshop Steam</span></li>
+            <li><strong>100+</strong> <span class="text" data-en="maps of different scales" data-ru="карт разного масштаба">карт разного масштаба</span></li>
+            <li><strong>10 <span class="text" data-en="years" data-ru="лет">лет</span></strong> <span class="text" data-en="of development (in Early Access since 2015)" data-ru="разработки (в раннем доступе с 2015)">разработки (в раннем доступе с 2015)</span></li>
+        </ul>
+
+        <p><em>
+            <span class="text" data-en="Game philosophy: A digital sandbox with car models where you're a child, a stuntman, and a test engineer at once." data-ru="Философия игры: Это цифровой песочный стол с моделями машин, где ты одновременно и ребёнок, и каскадёр, и инженер-испытатель.">
+                Философия игры: Это цифровой песочный стол с моделями машин, где ты одновременно и ребёнок, и каскадёр, и инженер-испытатель.
+            </span>
+        </em></p>
+
+        <!-- Кнопка Steam -->
+        <a href="https://store.steampowered.com/app/284160/BeamNG_drive/" target="_blank" class="btn">
+            <span class="text" data-en="🎮 Get BeamNG.drive on Steam" data-ru="🎮 Купить BeamNG.drive в Steam">🎮 Купить BeamNG.drive в Steam</span>
+        </a>
+    </div>
+
+    <div class="footer">
+        <span class="text" data-en="© 2025 Fan Site. Not affiliated with BeamNG GmbH." data-ru="© 2025 Фан-сайт. Не связан с BeamNG GmbH.">© 2025 Фан-сайт. Не связан с BeamNG GmbH.</span>
+    </div>
+
+    <!-- Скрипт для переключения языка -->
+    <script>
+        function setLang(lang) {
+            document.querySelectorAll('.text').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.textContent = text;
+            });
+            // Сохраняем выбор
+            localStorage.setItem('site-lang', lang);
+        }
+
+        // Авто-восстановление языка
+        window.onload = () => {
+            const savedLang = localStorage.getItem('site-lang') || 'ru';
+            setLang(savedLang);
+        };
+    </script>
 </body>
 </html>
